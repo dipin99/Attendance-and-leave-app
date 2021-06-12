@@ -28,7 +28,6 @@ class ExpandCards2 extends StatelessWidget {
           ),
            
           children: <Widget>[
-            Holiday('gg'),
             Text('15th August | Sunday Independence Day'),
             Text('10th September | Friday Ganesh Chaturthi'),
             Text('2nd October | Saturday Gandhi Jayanti'),
