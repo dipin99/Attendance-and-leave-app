@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import './screens/product_overview_screen.dart';
 
 
-void main() => runApp(Leave());
+void main() => runApp(Leave1());
 
-class Leave extends StatelessWidget {
+class Leave1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

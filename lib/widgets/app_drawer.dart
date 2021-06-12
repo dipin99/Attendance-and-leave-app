@@ -12,8 +12,8 @@ class AppDrawer extends StatelessWidget {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.access_alarm),
-            title: Text('Hmm'),
+            leading: Icon(Icons.account_box),
+            title: Text('Account'),
             onTap: () {
               Navigator.of(context).pushReplacementNamed('/');
             },

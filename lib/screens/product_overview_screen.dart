@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:leave/widgets/calendar.dart';
-import 'package:leave/widgets/expanded_cards1.dart';
+import 'package:leave/widgets/Leaves.dart';
 import 'package:leave/widgets/expanded_cards2.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/expanded_cards.dart';
@@ -33,7 +32,7 @@ class ProductsOverviewScreen extends StatelessWidget {
               height: 40,
             ),
             ExpandedCards('My Calendar'),
-            ExpandCards1('Apply Leave'),
+            Leave('Apply Leave'),
             ExpandCards2('Holiday Calendar'),
             
           ],
