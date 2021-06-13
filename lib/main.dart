@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:leave/screens/leave_screen.dart';
 import './screens/product_overview_screen.dart';
 
 
-void main() => runApp(Leave());
+void main() => runApp(Leave1());
 
-class Leave extends StatelessWidget {
+class Leave1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,6 +15,11 @@ class Leave extends StatelessWidget {
         accentColor: Colors.white
         ),
       home: ProductsOverviewScreen(),
+      //  initialRoute: '/',
+      //   routes: {
+      //     '/':(ctx)=> ProductsOverviewScreen(),
+      //     ApplyLeaveScreen.routeName: (ctx) => ApplyLeaveScreen(),
+      //   },
     );
   }
 }
