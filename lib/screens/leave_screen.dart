@@ -1,13 +1,11 @@
 import 'dart:ui';
 
-
 import 'package:flutter/material.dart';
+
 import '../Shared/calendar.dart';
+import '../Shared/date_picker.dart';
 
 class ApplyLeaveScreen extends StatefulWidget {
-  static const routeName = '/applyleave';
-  const ApplyLeaveScreen({Key key}) : super(key: key);
-
   @override
   _ApplyLeaveScreenState createState() => _ApplyLeaveScreenState();
 }
@@ -27,14 +25,6 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 19,
-              ),
-            ),
-            Text(
-              'Apply Leave',
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 14,
               ),
             ),
           ],
@@ -81,11 +71,20 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'From Date*',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 17,
+                  RaisedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DatePickerDemo()),
+                      );
+                    },
+                    child: Text(
+                      'From Date*',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 17,
+                      ),
                     ),
                   ),
                   Text(
@@ -102,11 +101,20 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'To Date*',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 17,
+                  RaisedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DatePickerDemo()),
+                      );
+                    },
+                    child: Text(
+                      'To Date*',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 17,
+                      ),
                     ),
                   ),
                   Text(
@@ -167,7 +175,7 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Type of Leave*',
+                    'Reason',
                     style: TextStyle(
                       color: Colors.blue,
                       fontSize: 17,
@@ -224,7 +232,7 @@ Widget buildContainer(Widget child) {
       ),
       borderRadius: BorderRadius.circular(15),
     ),
-    height: 70,
+    height: 100,
     width: 450,
     margin: EdgeInsets.all(10),
     padding: EdgeInsets.all(10),
