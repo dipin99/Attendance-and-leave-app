@@ -4,8 +4,12 @@ class CategoryItem1 extends StatelessWidget {
   final String id;
   final String title;
   final Color color;
-  
-  CategoryItem1(this.title, this.color, this.id,);
+
+  CategoryItem1(
+    this.title,
+    this.color,
+    this.id,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +46,8 @@ class CategoryItem1 extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: Text(
                     '9.0\ndays',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white
-                      ),
-                    ),
-                    
-                  
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                  ),
                 ),
               ],
             ),

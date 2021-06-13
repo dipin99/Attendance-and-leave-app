@@ -8,8 +8,6 @@ class Holidays extends StatefulWidget {
   _HolidaysState createState() => _HolidaysState();
 }
 
-
-
 class _HolidaysState extends State<Holidays> {
   @override
   Widget build(BuildContext context) {
@@ -32,47 +30,49 @@ class _HolidaysState extends State<Holidays> {
               ),
               children: [
                 ListTile(
-        title: Text("15th August | Sun", style: TextStyle(fontSize: 20.0, color: Colors.green)),
-        subtitle: Text("Independance Day", style: TextStyle(fontSize: 18.0)),
-      
-      ),
-      ListTile(
-        title: Text("10th September | Fri", style: TextStyle(fontSize: 20.0, color: Colors.green)),
-        subtitle: Text("Ganesh Chaturthi", style: TextStyle(fontSize: 18.0)),
-      
-      ),
-      ListTile(
-        title: Text("2nd October | Saturday", style: TextStyle(fontSize: 20.0, color: Colors.green)),
-        subtitle: Text("Gandhi Jayanti", style: TextStyle(fontSize: 18.0)),
-      
-      ),
-      
-      TextButton(
-                style: ButtonStyle(
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.blue),
-                  overlayColor: MaterialStateProperty.resolveWith<Color>(
-                    (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.hovered))
-                        return Colors.blue.withOpacity(0.04);
-                      if (states.contains(MaterialState.focused) ||
-                          states.contains(MaterialState.pressed))
-                        return Colors.blue.withOpacity(0.12);
-                      return null; 
-                    },
-                  ),
+                  title: Text("15th August | Sun",
+                      style: TextStyle(fontSize: 20.0, color: Colors.green)),
+                  subtitle: Text("Independance Day",
+                      style: TextStyle(fontSize: 18.0)),
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DatePickerDemo()),
-                  );
-                },
-                child: Text(
-                  'See More',
-                  textAlign: TextAlign.right,
-                  )
-                )
+                ListTile(
+                  title: Text("10th September | Fri",
+                      style: TextStyle(fontSize: 20.0, color: Colors.green)),
+                  subtitle: Text("Ganesh Chaturthi",
+                      style: TextStyle(fontSize: 18.0)),
+                ),
+                ListTile(
+                  title: Text("2nd October | Saturday",
+                      style: TextStyle(fontSize: 20.0, color: Colors.green)),
+                  subtitle:
+                      Text("Gandhi Jayanti", style: TextStyle(fontSize: 18.0)),
+                ),
+                TextButton(
+                    style: ButtonStyle(
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.blue),
+                      overlayColor: MaterialStateProperty.resolveWith<Color>(
+                        (Set<MaterialState> states) {
+                          if (states.contains(MaterialState.hovered))
+                            return Colors.blue.withOpacity(0.04);
+                          if (states.contains(MaterialState.focused) ||
+                              states.contains(MaterialState.pressed))
+                            return Colors.blue.withOpacity(0.12);
+                          return null;
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DatePickerDemo()),
+                      );
+                    },
+                    child: Text(
+                      'See More',
+                      textAlign: TextAlign.right,
+                    ))
               ],
             )));
   }
