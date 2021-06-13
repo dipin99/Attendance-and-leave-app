@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -26,10 +25,7 @@ class ExpandCards2 extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-           
-          children: <Widget>[
-            Calender()
-          ],
+          children: <Widget>[Calender()],
         ),
       ),
     );

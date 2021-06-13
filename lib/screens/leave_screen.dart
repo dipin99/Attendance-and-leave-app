@@ -11,6 +11,8 @@ class ApplyLeaveScreen extends StatefulWidget {
 }
 
 class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
+  
+
   @override
   bool _checked = false;
   Widget build(BuildContext context) {
@@ -131,6 +133,7 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  
                   Text(
                     'Type of Leave*',
                     style: TextStyle(
@@ -141,6 +144,7 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
+
                       Text(
                         'CL/Contingency Leave',
                         style: TextStyle(
@@ -212,6 +216,7 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                 ),
                 ElevatedButton(
                   child: Text("Confirm"),
+                  
                   onPressed: () {},
                 ),
               ],

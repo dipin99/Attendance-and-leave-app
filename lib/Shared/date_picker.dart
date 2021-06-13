@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-
-
 class DatePickerDemo extends StatefulWidget {
   @override
   _DatePickerDemoState createState() => _DatePickerDemoState();
 }
 
 class _DatePickerDemoState extends State<DatePickerDemo> {
-  
   DateTime selectedDate = DateTime.now();
 
   /// This decides which day will be enabled
@@ -26,7 +23,6 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
     final ThemeData theme = Theme.of(context);
     assert(theme.platform != null);
     return buildMaterialDatePicker(context);
-    
   }
 
   @override
@@ -36,7 +32,6 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            
             SizedBox(
               height: 20.0,
             ),
@@ -54,8 +49,6 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
       ),
     );
   }
-
-  
 
   buildMaterialDatePicker(BuildContext context) async {
     final DateTime picked = await showDatePicker(
