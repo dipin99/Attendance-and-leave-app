@@ -15,11 +15,6 @@ class Leave1 extends StatelessWidget {
         accentColor: Colors.white
         ),
       home: ProductsOverviewScreen(),
-      //  initialRoute: '/',
-      //   routes: {
-      //     '/':(ctx)=> ProductsOverviewScreen(),
-      //     ApplyLeaveScreen.routeName: (ctx) => ApplyLeaveScreen(),
-      //   },
     );
   }
 }

@@ -33,9 +33,9 @@ class _LeaveState extends State<Leave> {
             ListTile(
               isThreeLine: true,
               title: Text("CL/Contingency Leave",
-                  style: TextStyle(fontSize: 15.0)),
+                  style: TextStyle(fontSize: 20.0)),
               subtitle: Text("6.0 Remaining \nValid Till: 31/12/2021",
-                  style: TextStyle(fontSize: 14.0)),
+                  style: TextStyle(fontSize: 18.0)),
               trailing: FlatButton(
                 child: Text(
                   'APPLY',
@@ -54,9 +54,9 @@ class _LeaveState extends State<Leave> {
             ),
             ListTile(
               isThreeLine: true,
-              title: Text("Optional Holiday", style: TextStyle(fontSize: 15.0)),
+              title: Text("Optional Holiday", style: TextStyle(fontSize: 20.0)),
               subtitle: Text("3.0 Remaining\nValid Till:31/12/2021",
-                  style: TextStyle(fontSize: 14.0)),
+                  style: TextStyle(fontSize: 18.0)),
               trailing: FlatButton(
                 child: Text(
                   'APPLY',
@@ -76,9 +76,9 @@ class _LeaveState extends State<Leave> {
             ListTile(
               isThreeLine: true,
               title: Text("Special Privilege Leave",
-                  style: TextStyle(fontSize: 15.0)),
+                  style: TextStyle(fontSize: 20.0)),
               subtitle: Text("10.0 Remaining\nValid Till:31/12/2021",
-                  style: TextStyle(fontSize: 14.0)),
+                  style: TextStyle(fontSize: 18.0)),
               trailing: FlatButton(
                 child: Text(
                   'APPLY',

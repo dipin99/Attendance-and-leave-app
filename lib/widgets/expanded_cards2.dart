@@ -2,8 +2,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:leave/widgets/Holiday.dart';
-import 'package:leave/widgets/calendar.dart';
+import 'package:leave/Shared/calendar.dart';
 
 class ExpandCards2 extends StatelessWidget {
   final String title;
@@ -14,7 +13,7 @@ class ExpandCards2 extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
-      color: Color.fromARGB(255, 12, 109, 230),
+      color: Colors.blue,
       margin: EdgeInsets.all(12),
       child: Padding(
         padding: EdgeInsets.only(top: 4.0, left: 4.0, right: 4.0, bottom: 4.0),
