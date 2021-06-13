@@ -7,8 +7,30 @@ class Holidays extends StatefulWidget {
   _HolidaysState createState() => _HolidaysState();
 }
 
-List<Widget> _buildExpansionTileChildren() => [
-      ListTile(
+
+
+class _HolidaysState extends State<Holidays> {
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+        color: Colors.blue,
+        margin: EdgeInsets.all(12),
+        child: Padding(
+            padding:
+                EdgeInsets.only(top: 4.0, left: 4.0, right: 4.0, bottom: 4.0),
+            child: ExpansionTile(
+              childrenPadding: EdgeInsets.only(bottom: 10.0),
+              iconColor: Colors.white,
+              backgroundColor: Colors.white,
+              title: Text(
+                widget.title,
+                style: TextStyle(color: Colors.black),
+              ),
+              children: [
+                ListTile(
         title: Text("15th August | Sun", style: TextStyle(fontSize: 20.0, color: Colors.green)),
         subtitle: Text("Independance Day", style: TextStyle(fontSize: 18.0)),
       
@@ -45,29 +67,7 @@ List<Widget> _buildExpansionTileChildren() => [
                   textAlign: TextAlign.right,
                   )
                 )
-    ];
-
-class _HolidaysState extends State<Holidays> {
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        color: Colors.blue,
-        margin: EdgeInsets.all(12),
-        child: Padding(
-            padding:
-                EdgeInsets.only(top: 4.0, left: 4.0, right: 4.0, bottom: 4.0),
-            child: ExpansionTile(
-              childrenPadding: EdgeInsets.only(bottom: 10.0),
-              iconColor: Colors.white,
-              backgroundColor: Colors.white,
-              title: Text(
-                widget.title,
-                style: TextStyle(color: Colors.black),
-              ),
-              children: _buildExpansionTileChildren(),
+              ],
             )));
   }
 }

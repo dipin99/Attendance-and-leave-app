@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CategoryItem extends StatelessWidget {
+class CategoryItem1 extends StatelessWidget {
   final String id;
   final String title;
   final Color color;
-  final IconData icon;
-  CategoryItem(this.title, this.color, this.id, this.icon);
+  
+  CategoryItem1(this.title, this.color, this.id,);
 
   @override
   Widget build(BuildContext context) {
@@ -40,11 +40,15 @@ class CategoryItem extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.centerRight,
-                  child: Icon(
-                    icon,
-                    color: Colors.white,
-                    size: 30.0,
-                  ),
+                  child: Text(
+                    '9.0\ndays',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white
+                      ),
+                    ),
+                    
+                  
                 ),
               ],
             ),
