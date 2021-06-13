@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:leave/screens/leave_screen.dart';
 
 class Leave extends StatefulWidget {
   final String title;
@@ -11,68 +11,77 @@ class Leave extends StatefulWidget {
 }
 
 List<Widget> _buildExpansionTileChildren() => [
-      
-    ListTile(
-          isThreeLine: true,
-          title: Text("CL/Contingency Leave",
-              style: TextStyle(fontSize: 13.0)),
-          subtitle: Text("6.0 Remaining \nValid Till: 31/12/2021",
-              style: TextStyle(fontSize: 10.0)),
-          trailing: FlatButton(
-            child: Text(
-              'APPLY',
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.blue,
-              ),
-            ),
-            onPressed: () {},
-          ),
-        ),
-       ListTile(
-          isThreeLine: true,
-          title: Text("Optional Holiday",
-              style: TextStyle(fontSize: 13.0)),
-          subtitle: Text("3.0 Remaining\nValid Till:31/12/2021",
-              style: TextStyle(fontSize: 10.0)),
-          trailing: FlatButton(
-            child: Text(
-              'APPLY',
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.blue,
-              ),
-            ),
-            onPressed: () {},
-          ),
-        ),
-      
       ListTile(
-          isThreeLine: true,
-          title: Text("Special Privilege Leave",
-              style: TextStyle(fontSize: 15.0)),
-          subtitle: Text("10.0 Remaining\nValid Till:31/12/2021",
-              style: TextStyle(fontSize: 14.0)),
-          trailing: FlatButton(
-            child: Text(
-              'APPLY',
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.blue,
-              ),
-             
+        isThreeLine: true,
+        title: Text("CL/Contingency Leave", style: TextStyle(fontSize: 15.0)),
+        subtitle: Text("6.0 Remaining \nValid Till: 31/12/2021",
+            style: TextStyle(fontSize: 14.0)),
+        trailing: FlatButton(
+          child: Text(
+            'APPLY',
+            style: TextStyle(
+              fontSize: 18.0,
+              color: Colors.blue,
             ),
-            onPressed: () {},
           ),
+          onPressed: () {
+          },
         ),
-      
-       ListTile(
-        title: Text(
-          "See More",
-          style: TextStyle(color: Colors.blue, fontSize: 12.0),
+      ),
+      ListTile(
+        isThreeLine: true,
+        title: Text("Optional Holiday", style: TextStyle(fontSize: 15.0)),
+        subtitle: Text("3.0 Remaining\nValid Till:31/12/2021",
+            style: TextStyle(fontSize: 14.0)),
+        trailing: FlatButton(
+          child: Text(
+            'APPLY',
+            style: TextStyle(
+              fontSize: 18.0,
+              color: Colors.blue,
+            ),
+          ),
+          onPressed: () {},
         ),
-      )
-      
+      ),
+      ListTile(
+        isThreeLine: true,
+        title:
+            Text("Special Privilege Leave", style: TextStyle(fontSize: 15.0)),
+        subtitle: Text("10.0 Remaining\nValid Till:31/12/2021",
+            style: TextStyle(fontSize: 14.0)),
+        trailing: FlatButton(
+          child: Text(
+            'APPLY',
+            style: TextStyle(
+              fontSize: 18.0,
+              color: Colors.blue,
+            ),
+          ),
+          onPressed: () {},
+        ),
+      ),
+      TextButton(
+          style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+            overlayColor: MaterialStateProperty.resolveWith<Color>(
+              (Set<MaterialState> states) {
+                if (states.contains(MaterialState.hovered))
+                  return Colors.blue.withOpacity(0.04);
+                if (states.contains(MaterialState.focused) ||
+                    states.contains(MaterialState.pressed))
+                  return Colors.blue.withOpacity(0.12);
+                return null;
+              },
+            ),
+          ),
+          onPressed: () {
+            
+          },
+          child: Text(
+            'See More',
+            textAlign: TextAlign.right,
+          ))
     ];
 
 class _LeaveState extends State<Leave> {
@@ -89,13 +98,16 @@ class _LeaveState extends State<Leave> {
                 EdgeInsets.only(top: 4.0, left: 4.0, right: 4.0, bottom: 4.0),
             child: ExpansionTile(
               childrenPadding: EdgeInsets.only(bottom: 10.0),
-              iconColor: Colors.white,
+              iconColor: Colors.black,
               backgroundColor: Colors.white,
               title: Text(
                 widget.title,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.black),
               ),
               children: _buildExpansionTileChildren(),
-            )));
+            ),
+            ),
+
+            );
   }
 }

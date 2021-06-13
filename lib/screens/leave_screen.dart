@@ -1,38 +1,32 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:leave/widgets/app_drawer.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class ExpandedCards extends StatefulWidget {
-  final String title;
-  ExpandedCards(this.title);
-
+class LeaveScreen extends StatefulWidget {
   @override
-  _ExpandedCardsState createState() => _ExpandedCardsState();
+  _LeaveScreenState createState() => _LeaveScreenState();
 }
 
-class _ExpandedCardsState extends State<ExpandedCards> {
+class _LeaveScreenState extends State<LeaveScreen> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
+
   DateTime _focusedDay = DateTime.now();
+
   DateTime _selectedDay;
+
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-      color: Color.fromARGB(255, 12, 109, 230),
-      margin: EdgeInsets.all(12),
-      child: Padding(
-        padding: EdgeInsets.only(top: 4.0, left: 4.0, right: 4.0, bottom: 4.0),
-        child: ExpansionTile(
-          childrenPadding: EdgeInsets.only(bottom: 10),
-          iconColor: Colors.white,
-          backgroundColor: Colors.white,
-          title: Text(
-            widget.title,
-            style: TextStyle(color: Colors.black),
-          ),
-          children: <Widget>[
-            TableCalendar(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Leave & Attendance'),
+      ),
+      drawer: AppDrawer(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              children: <Widget>[
+                TableCalendar(
               firstDay: DateTime.utc(2010, 10, 16),
               lastDay: DateTime.utc(2030, 3, 14),
               focusedDay: DateTime.now(),
@@ -52,7 +46,7 @@ class _ExpandedCardsState extends State<ExpandedCards> {
               },
               onFormatChanged: (format) {
                 if (_calendarFormat != format) {
-                 
+                  
                   setState(() {
                     _calendarFormat = format;
                   });
@@ -63,9 +57,15 @@ class _ExpandedCardsState extends State<ExpandedCards> {
                 _focusedDay = focusedDay;
               },
             ),
+            
+                
+              ],
+            )
           ],
         ),
+
       ),
+
     );
   }
 }

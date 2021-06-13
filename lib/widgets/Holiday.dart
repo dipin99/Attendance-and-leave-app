@@ -23,12 +23,28 @@ List<Widget> _buildExpansionTileChildren() => [
         subtitle: Text("Gandhi Jayanti", style: TextStyle(fontSize: 18.0)),
       
       ),
-      ListTile(
-        title: Text(
-          "See More",
-          style: TextStyle(color: Colors.blue, fontSize: 12.0),
-        ),
-      )
+      
+      TextButton(
+                style: ButtonStyle(
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.blue),
+                  overlayColor: MaterialStateProperty.resolveWith<Color>(
+                    (Set<MaterialState> states) {
+                      if (states.contains(MaterialState.hovered))
+                        return Colors.blue.withOpacity(0.04);
+                      if (states.contains(MaterialState.focused) ||
+                          states.contains(MaterialState.pressed))
+                        return Colors.blue.withOpacity(0.12);
+                      return null; 
+                    },
+                  ),
+                ),
+                onPressed: () {},
+                child: Text(
+                  'See More',
+                  textAlign: TextAlign.right,
+                  )
+                )
     ];
 
 class _HolidaysState extends State<Holidays> {
@@ -49,7 +65,7 @@ class _HolidaysState extends State<Holidays> {
               backgroundColor: Colors.white,
               title: Text(
                 widget.title,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.black),
               ),
               children: _buildExpansionTileChildren(),
             )));
