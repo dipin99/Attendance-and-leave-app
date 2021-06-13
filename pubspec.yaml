@@ -23,7 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  table_calendar: ^3.0.0  
+  table_calendar: ^3.0.0 
+  date_field: ^2.0.1 
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -31,6 +32,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   expandable: ^5.0.1
   expandable_card: ^0.0.3+1
+  flutter_datetime_picker: ^1.5.1
   
 
 dev_dependencies:

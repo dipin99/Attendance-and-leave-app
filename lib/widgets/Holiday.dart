@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:leave/Shared/date_picker.dart';
 
 class Holidays extends StatefulWidget {
   final String title;
@@ -61,7 +62,12 @@ class _HolidaysState extends State<Holidays> {
                     },
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DatePickerDemo()),
+                  );
+                },
                 child: Text(
                   'See More',
                   textAlign: TextAlign.right,
