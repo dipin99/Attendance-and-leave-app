@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:leave/screens/leave_screen.dart';
 import './screens/product_overview_screen.dart';
 
 
@@ -14,6 +15,11 @@ class Leave1 extends StatelessWidget {
         accentColor: Colors.white
         ),
       home: ProductsOverviewScreen(),
+      //  initialRoute: '/',
+      //   routes: {
+      //     '/':(ctx)=> ProductsOverviewScreen(),
+      //     ApplyLeaveScreen.routeName: (ctx) => ApplyLeaveScreen(),
+      //   },
     );
   }
 }

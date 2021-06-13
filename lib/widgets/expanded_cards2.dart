@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:leave/widgets/Holiday.dart';
+import 'package:leave/widgets/calendar.dart';
 
 class ExpandCards2 extends StatelessWidget {
   final String title;
@@ -23,35 +24,12 @@ class ExpandCards2 extends StatelessWidget {
           title: Text(
             title,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
            
           children: <Widget>[
-            Text('15th August | Sunday Independence Day'),
-            Text('10th September | Friday Ganesh Chaturthi'),
-            Text('2nd October | Saturday Gandhi Jayanti'),
-            TextButton(
-                style: ButtonStyle(
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.blue),
-                  overlayColor: MaterialStateProperty.resolveWith<Color>(
-                    (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.hovered))
-                        return Colors.blue.withOpacity(0.04);
-                      if (states.contains(MaterialState.focused) ||
-                          states.contains(MaterialState.pressed))
-                        return Colors.blue.withOpacity(0.12);
-                      return null; 
-                    },
-                  ),
-                ),
-                onPressed: () {},
-                child: Text(
-                  'See More',
-                  textAlign: TextAlign.right,
-                  )
-                )
+            Calender()
           ],
         ),
       ),
