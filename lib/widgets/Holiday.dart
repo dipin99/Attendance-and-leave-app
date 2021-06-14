@@ -63,11 +63,7 @@ class _HolidaysState extends State<Holidays> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DatePickerDemo()),
-                      );
+                      
                     },
                     child: Text(
                       'See More',
