@@ -124,7 +124,7 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                   RaisedButton(
                     onPressed: () => _selectDate(context),
                     child: Text(
-                      'From Date*',
+                      'From Date*                                                          ',
                       style: TextStyle(
                         color: Colors.blue,
                         fontSize: 17,
@@ -148,7 +148,7 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                   RaisedButton(
                     onPressed: () => _selectDate(context),
                     child: Text(
-                      'To Date*',
+                      'To Date*                                                               ',
                       style: TextStyle(
                         color: Colors.blue,
                         fontSize: 17,
@@ -171,7 +171,7 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                 value: _chosenValue1,
                 //elevation: 5,
                 style: TextStyle(color: Colors.black),
-                iconEnabledColor: Colors.black,
+                iconEnabledColor: Colors.blue,
                 dropdownColor: Colors.grey[300],
 
                 items: <String>[
@@ -185,17 +185,17 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                       value,
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 15.0,
+                        fontSize: 16.0,
                       ),
                     ),
                   );
                 }).toList(),
                 hint: Text(
-                  "Type of Leave",
+                  "Type of Leave                                                    ",
                   style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500),
+                      color: Colors.blue,
+                      fontSize: 18,
+                      ),
                 ),
                 onChanged: (String value) {
                   setState(() {
@@ -219,8 +219,12 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                 focusColor: Colors.grey[300],
                 value: _chosenValue,
                 //elevation: 5,
-                style: TextStyle(color: Colors.black),
-                iconEnabledColor: Colors.black,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20
+                  ),
+                iconEnabledColor: Colors.blue,
+                iconDisabledColor: Colors.blue,
                 dropdownColor: Colors.grey[300],
 
                 items: <String>[
@@ -240,11 +244,11 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                   );
                 }).toList(),
                 hint: Text(
-                  "Select Reason",
+                  "Reason                                                               ",
                   style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500),
+                      color: Colors.blue,
+                      fontSize: 18,
+                      ),
                 ),
                 onChanged: (String value) {
                   setState(() {
@@ -258,10 +262,19 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
               children: [
                 ElevatedButton(
                   child: Text("Cancel"),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue,
+                    
+                     
+                  ),
+                  
                   onPressed: () {},
                 ),
                 ElevatedButton(
                   child: Text("Confirm"),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.grey,
+                  ),
                   onPressed: () {},
                 ),
               ],
@@ -282,7 +295,7 @@ Widget buildContainer(Widget child) {
       ),
       borderRadius: BorderRadius.circular(15),
     ),
-    height: 100,
+    height: 90,
     width: 450,
     margin: EdgeInsets.all(10),
     padding: EdgeInsets.all(10),
