@@ -1,6 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:leave/widgets/Holiday.dart';
+import 'package:leave/widgets/Leave2.dart';
+import 'package:leave/widgets/Leaves.dart';
+import 'package:leave/widgets/expanded_cards2.dart';
 
 import '../Shared/calendar.dart';
 import '../Shared/date_picker.dart';
@@ -129,41 +133,8 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                 ],
               ),
             ),
-            buildContainer(
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  
-                  Text(
-                    'Type of Leave*',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 17,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-
-                      Text(
-                        'CL/Contingency Leave',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 17,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 130,
-                      ),
-                      Icon(
-                        Icons.keyboard_arrow_down,
-                        color: Colors.blue,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            Leave2('Type of Leave','CL/Contigency Leave'),
+      
             CheckboxListTile(
               title: Text('Apply for Half-Day'),
               controlAffinity: ListTileControlAffinity.leading,
