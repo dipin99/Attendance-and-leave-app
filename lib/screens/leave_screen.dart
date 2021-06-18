@@ -1,10 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:leave/widgets/Holiday.dart';
-import 'package:leave/widgets/Leave2.dart';
-import 'package:leave/widgets/Leaves.dart';
-import 'package:leave/widgets/expanded_cards2.dart';
+
 
 import '../Shared/calendar.dart';
 import '../Shared/date_picker.dart';
@@ -15,10 +12,10 @@ class ApplyLeaveScreen extends StatefulWidget {
 }
 
 class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
-  
-
   @override
   bool _checked = false;
+  String _chosenValue;
+  String _chosenValue1;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -133,8 +130,48 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                 ],
               ),
             ),
-            Leave2('Type of Leave','CL/Contigency Leave'),
-      
+            buildContainer(
+              DropdownButton<String>(
+                focusColor: Colors.grey[300],
+                value: _chosenValue1,
+                //elevation: 5,
+                style: TextStyle(color: Colors.black),
+                iconEnabledColor: Colors.black,
+                dropdownColor: Colors.grey[300],
+
+                items: <String>[
+  
+                  'Cl/ Contigency Leave',
+                  'Optional Holiday',
+                  'Special Privelage Leave',
+                ].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15.0,
+                      ),
+                    ),
+                  );
+                }).toList(),
+                hint: Text(
+                  "Type of Leave",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500),
+                ),
+                onChanged: (String value) {
+                  setState(() {
+                    _chosenValue1 = value;
+                  });
+                },
+              ),
+              
+            ),
+            
             CheckboxListTile(
               title: Text('Apply for Half-Day'),
               controlAffinity: ListTileControlAffinity.leading,
@@ -146,36 +183,42 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
               },
             ),
             buildContainer(
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Reason',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 17,
+              DropdownButton<String>(
+                focusColor: Colors.grey[300],
+                value: _chosenValue,
+                //elevation: 5,
+                style: TextStyle(color: Colors.black),
+                iconEnabledColor: Colors.black,
+                dropdownColor: Colors.grey[300],
+
+                items: <String>[
+                  'Reason 1',
+                  'Reason 2',
+                  'Reason 3',
+                ].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15.0,
+                      ),
                     ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text(
-                        'Select Reason',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 17,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 130,
-                      ),
-                      Icon(
-                        Icons.keyboard_arrow_down,
-                        color: Colors.blue,
-                      ),
-                    ],
-                  ),
-                ],
+                  );
+                }).toList(),
+                hint: Text(
+                  "Select Reason",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500),
+                ),
+                onChanged: (String value) {
+                  setState(() {
+                    _chosenValue = value;
+                  });
+                },
               ),
             ),
             Row(
@@ -187,7 +230,6 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                 ),
                 ElevatedButton(
                   child: Text("Confirm"),
-                  
                   onPressed: () {},
                 ),
               ],
