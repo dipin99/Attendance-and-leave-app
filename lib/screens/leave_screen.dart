@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../Shared/calendar.dart';
-import '../Shared/date_picker.dart';
+
 
 class ApplyLeaveScreen extends StatefulWidget {
   @override
@@ -11,10 +11,58 @@ class ApplyLeaveScreen extends StatefulWidget {
 }
 
 class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
-  
-
   @override
   bool _checked = false;
+  String _chosenValue;
+  String _chosenValue1;
+
+  DateTime selectedDate = DateTime.now();
+
+  /// This decides which day will be enabled
+  /// This will be called every time while displaying day in calender.
+  bool _decideWhichDayToEnable(DateTime day) {
+    if ((day.isAfter(DateTime.now().subtract(Duration(days: 1))) &&
+        day.isBefore(DateTime.now().add(Duration(days: 10))))) {
+      return true;
+    }
+    return false;
+  }
+
+  _selectDate(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    assert(theme.platform != null);
+    return buildMaterialDatePicker(context);
+  }
+
+  buildMaterialDatePicker(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2025),
+      initialEntryMode: DatePickerEntryMode.calendar,
+      initialDatePickerMode: DatePickerMode.day,
+      selectableDayPredicate: _decideWhichDayToEnable,
+      helpText: 'Start Date',
+      cancelText: 'Cancel',
+      confirmText: 'Confirm',
+      errorFormatText: 'Enter valid date',
+      errorInvalidText: 'Enter date in valid range',
+      fieldLabelText: 'Booking date',
+      fieldHintText: 'Month/Date/Year',
+      builder: (context, child) {
+        return Theme(
+          data: ThemeData.light(),
+          child: child,
+        );
+      },
+    );
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+      });
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -74,15 +122,9 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   RaisedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DatePickerDemo()),
-                      );
-                    },
+                    onPressed: () => _selectDate(context),
                     child: Text(
-                      'From Date*',
+                      'From Date*                                                          ',
                       style: TextStyle(
                         color: Colors.blue,
                         fontSize: 17,
@@ -104,15 +146,9 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   RaisedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DatePickerDemo()),
-                      );
-                    },
+                    onPressed: () => _selectDate(context),
                     child: Text(
-                      'To Date*',
+                      'To Date*                                                               ',
                       style: TextStyle(
                         color: Colors.blue,
                         fontSize: 17,
@@ -130,38 +166,42 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
               ),
             ),
             buildContainer(
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  
-                  Text(
-                    'Type of Leave*',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 17,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
+              DropdownButton<String>(
+                focusColor: Colors.grey[300],
+                value: _chosenValue1,
+                //elevation: 5,
+                style: TextStyle(color: Colors.black),
+                iconEnabledColor: Colors.blue,
+                dropdownColor: Colors.grey[300],
 
-                      Text(
-                        'CL/Contingency Leave',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 17,
-                        ),
+                items: <String>[
+                  'Cl/ Contigency Leave',
+                  'Optional Holiday',
+                  'Special Privelage Leave',
+                ].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.0,
                       ),
-                      SizedBox(
-                        width: 130,
+                    ),
+                  );
+                }).toList(),
+                hint: Text(
+                  "Type of Leave                                                    ",
+                  style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 18,
                       ),
-                      Icon(
-                        Icons.keyboard_arrow_down,
-                        color: Colors.blue,
-                      ),
-                    ],
-                  ),
-                ],
+                ),
+                onChanged: (String value) {
+                  setState(() {
+                    _chosenValue1 = value;
+                  });
+                },
               ),
             ),
             CheckboxListTile(
@@ -175,36 +215,46 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
               },
             ),
             buildContainer(
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Reason',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 17,
+              DropdownButton<String>(
+                focusColor: Colors.grey[300],
+                value: _chosenValue,
+                //elevation: 5,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20
+                  ),
+                iconEnabledColor: Colors.blue,
+                iconDisabledColor: Colors.blue,
+                dropdownColor: Colors.grey[300],
+
+                items: <String>[
+                  'Reason 1',
+                  'Reason 2',
+                  'Reason 3',
+                ].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15.0,
+                      ),
                     ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text(
-                        'Select Reason',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 17,
-                        ),
+                  );
+                }).toList(),
+                hint: Text(
+                  "Reason                                                               ",
+                  style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 18,
                       ),
-                      SizedBox(
-                        width: 130,
-                      ),
-                      Icon(
-                        Icons.keyboard_arrow_down,
-                        color: Colors.blue,
-                      ),
-                    ],
-                  ),
-                ],
+                ),
+                onChanged: (String value) {
+                  setState(() {
+                    _chosenValue = value;
+                  });
+                },
               ),
             ),
             Row(
@@ -212,11 +262,19 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
               children: [
                 ElevatedButton(
                   child: Text("Cancel"),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue,
+                    
+                     
+                  ),
+                  
                   onPressed: () {},
                 ),
                 ElevatedButton(
                   child: Text("Confirm"),
-                  
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.grey,
+                  ),
                   onPressed: () {},
                 ),
               ],
@@ -237,7 +295,7 @@ Widget buildContainer(Widget child) {
       ),
       borderRadius: BorderRadius.circular(15),
     ),
-    height: 100,
+    height: 90,
     width: 450,
     margin: EdgeInsets.all(10),
     padding: EdgeInsets.all(10),
