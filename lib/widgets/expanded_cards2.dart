@@ -17,7 +17,7 @@ class ExpandCards2 extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.only(top: 4.0, left: 4.0, right: 4.0, bottom: 4.0),
         child: ExpansionTile(
-          iconColor: Colors.white,
+          iconColor: Colors.black,
           backgroundColor: Color.fromRGBO(248, 248, 248, 1),
           title: Text(
             title,
